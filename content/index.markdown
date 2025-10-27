@@ -396,7 +396,6 @@ tools. Let the Facebook group know if you've built something awesome too!
 * [PHP Consumer](https://github.com/scottmac/opengraph) - A small library for accessing of Open Graph Protocol data in PHP.
 * [OpenGraphNode in PHP](https://buzzword.org.uk/2010/opengraph/#php) - A simple parser for PHP.
 * [PyOpenGraph](https://pypi.python.org/pypi/PyOpenGraph) - A library written in Python for parsing Open Graph protocol information from web sites.
-* [OpenGraph Ruby](https://github.com/intridea/opengraph) - Ruby Gem which parses web pages and extracts Open Graph protocol markup.
 * [OpenGraph for Java](https://github.com/callumj/opengraph-java) - Small Java class used to represent the Open Graph protocol.
 * [RDF::RDFa::Parser](https://search.cpan.org/~tobyink/RDF-RDFa-Parser/lib/RDF/RDFa/Parser.pm) - Perl RDFa parser which understands the Open Graph protocol.
 
