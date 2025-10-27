@@ -57,7 +57,7 @@ $html = Markdown::defaultTransform($markdown);
       <?php echo $html; ?>
     </div>
     <div id="footer">
-      <p>The Open Graph protocol was originally created at Facebook and is inspired by <a href="https://en.wikipedia.org/wiki/Dublin_Core">Dublin Core</a>, <a href="https://googlewebmastercentral.blogspot.com/2009/02/specify-your-canonical.html">link-rel canonical</a>, <a href="https://microformats.org/">Microformats</a>, and <a href="https://en.wikipedia.org/wiki/RDFa">RDFa</a>. The specification described on this page is available under the <a href="https://www.openwebfoundation.org/legal/the-0-9-agreements---necessary-claims">Open Web Foundation Agreement, Version 0.9</a>. This website is <a href="https://github.com/facebook/open-graph-protocol">Open Source</a>. </p>
+      <p>The Open Graph protocol was originally created at Facebook and is inspired by <a href="https://en.wikipedia.org/wiki/Dublin_Core">Dublin Core</a>, <a href="https://developers.google.com/search/blog/2009/02/specify-your-canonical">link-rel canonical</a>, <a href="https://microformats.org/">Microformats</a>, and <a href="https://en.wikipedia.org/wiki/RDFa">RDFa</a>. The specification described on this page is available under the <a href="https://www.openwebfoundation.org/legal/the-0-9-agreements---necessary-claims">Open Web Foundation Agreement, Version 0.9</a>. This website is <a href="https://github.com/facebook/open-graph-protocol">Open Source</a>. </p>
     </div>
     </div>
 
