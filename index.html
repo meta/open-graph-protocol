@@ -133,6 +133,7 @@ HTTPS.</li>
 <li><code>og:image:width</code> - The number of pixels wide.</li>
 <li><code>og:image:height</code> - The number of pixels high.</li>
 <li><code>og:image:alt</code> - A description of what is in the image (not a caption). If the page specifies an og:image it should specify <code>og:image:alt</code>.</li>
+<li><code>og:image:color_scheme</code> - The intended interface color scheme for this image. Supported values are exactly <code>light</code> and <code>dark</code>.</li>
 </ul>
 
 <p>A full image example:</p>
@@ -145,7 +146,9 @@ HTTPS.</li>
 &lt;meta property="og:image:alt" content="A shiny red apple with a bite taken out" /&gt;
 </code></pre>
 
-<p>The <code>og:video</code> tag has the identical tags as <code>og:image</code>. Here is an example:</p>
+<p>The <code>og:video</code> tag supports <code>secure_url</code>, <code>type</code>, <code>width</code>, <code>height</code>, and
+<code>og:video:color_scheme</code>. Supported color-scheme values are exactly <code>light</code>
+and <code>dark</code>. Here is an example:</p>
 
 <pre><code>&lt;meta property="og:video" content="http://example.com/movie.swf" /&gt;
 &lt;meta property="og:video:secure_url" content="https://secure.example.com/movie.swf" /&gt;
@@ -160,6 +163,51 @@ HTTPS.</li>
 <pre><code>&lt;meta property="og:audio" content="http://example.com/sound.mp3" /&gt;
 &lt;meta property="og:audio:secure_url" content="https://secure.example.com/sound.mp3" /&gt;
 &lt;meta property="og:audio:type" content="audio/mpeg" /&gt;
+</code></pre>
+
+<h3>Color-scheme variants</h3>
+
+<p>Publishers can declare light and dark variants for any preview image or video.
+Use <code>og:image</code> with <code>og:image:type</code> set to <code>image/gif</code> for an animated GIF.
+Use <code>og:video</code> for an animation served as video, such as an MP4.</p>
+
+<p>Consumers that support color-scheme selection should apply the following steps
+independently to images and videos, considering only candidates they can use
+for that preview:</p>
+
+<ol>
+<li>Select the first candidate in document order whose color scheme matches the
+interface displaying the preview, if that scheme is known.</li>
+<li>Otherwise, select the first candidate without a valid color-scheme value.</li>
+<li>Otherwise, select the first candidate in document order.</li>
+</ol>
+
+<p>Consumers that ignore these properties use the existing array ordering.
+Publishers should put their preferred fallback first in each array.</p>
+
+<p>This example declares a default image and video followed by light and dark
+variants for each. Consumers that render a video can also select an image
+independently if they render a poster or still preview.</p>
+
+<pre><code>&lt;meta property="og:image" content="https://example.com/preview.jpg" /&gt;
+&lt;meta property="og:image:type" content="image/jpeg" /&gt;
+&lt;meta property="og:image:alt" content="A map of the city" /&gt;
+&lt;meta property="og:image" content="https://example.com/preview-light.gif" /&gt;
+&lt;meta property="og:image:type" content="image/gif" /&gt;
+&lt;meta property="og:image:color_scheme" content="light" /&gt;
+&lt;meta property="og:image:alt" content="An animated map of city traffic" /&gt;
+&lt;meta property="og:image" content="https://example.com/preview-dark.gif" /&gt;
+&lt;meta property="og:image:type" content="image/gif" /&gt;
+&lt;meta property="og:image:color_scheme" content="dark" /&gt;
+&lt;meta property="og:image:alt" content="An animated map of city traffic" /&gt;
+&lt;meta property="og:video" content="https://example.com/preview.mp4" /&gt;
+&lt;meta property="og:video:type" content="video/mp4" /&gt;
+&lt;meta property="og:video" content="https://example.com/preview-light.mp4" /&gt;
+&lt;meta property="og:video:type" content="video/mp4" /&gt;
+&lt;meta property="og:video:color_scheme" content="light" /&gt;
+&lt;meta property="og:video" content="https://example.com/preview-dark.mp4" /&gt;
+&lt;meta property="og:video:type" content="video/mp4" /&gt;
+&lt;meta property="og:video:color_scheme" content="dark" /&gt;
 </code></pre>
 
 <hr />

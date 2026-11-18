@@ -100,6 +100,7 @@ The `og:image` property has some optional structured properties:
  * `og:image:width` - The number of pixels wide.
  * `og:image:height` - The number of pixels high.
  * `og:image:alt` - A description of what is in the image (not a caption). If the page specifies an og:image it should specify `og:image:alt`.
+ * `og:image:color_scheme` - The intended interface color scheme for this image. Supported values are exactly `light` and `dark`.
 
 A full image example:
 
@@ -110,7 +111,9 @@ A full image example:
     <meta property="og:image:height" content="300" />
     <meta property="og:image:alt" content="A shiny red apple with a bite taken out" />
 
-The `og:video` tag has the identical tags as `og:image`. Here is an example:
+The `og:video` tag supports `secure_url`, `type`, `width`, `height`, and
+`og:video:color_scheme`. Supported color-scheme values are exactly `light`
+and `dark`. Here is an example:
 
     <meta property="og:video" content="http://example.com/movie.swf" />
     <meta property="og:video:secure_url" content="https://secure.example.com/movie.swf" />
@@ -124,6 +127,48 @@ The `og:audio` tag only has the first 3 properties available
     <meta property="og:audio" content="http://example.com/sound.mp3" />
     <meta property="og:audio:secure_url" content="https://secure.example.com/sound.mp3" />
     <meta property="og:audio:type" content="audio/mpeg" />
+
+### Color-scheme variants
+
+Publishers can declare light and dark variants for any preview image or video.
+Use `og:image` with `og:image:type` set to `image/gif` for an animated GIF.
+Use `og:video` for an animation served as video, such as an MP4.
+
+Consumers that support color-scheme selection should apply the following steps
+independently to images and videos, considering only candidates they can use
+for that preview:
+
+1. Select the first candidate in document order whose color scheme matches the
+   interface displaying the preview, if that scheme is known.
+2. Otherwise, select the first candidate without a valid color-scheme value.
+3. Otherwise, select the first candidate in document order.
+
+Consumers that ignore these properties use the existing array ordering.
+Publishers should put their preferred fallback first in each array.
+
+This example declares a default image and video followed by light and dark
+variants for each. Consumers that render a video can also select an image
+independently if they render a poster or still preview.
+
+    <meta property="og:image" content="https://example.com/preview.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:alt" content="A map of the city" />
+    <meta property="og:image" content="https://example.com/preview-light.gif" />
+    <meta property="og:image:type" content="image/gif" />
+    <meta property="og:image:color_scheme" content="light" />
+    <meta property="og:image:alt" content="An animated map of city traffic" />
+    <meta property="og:image" content="https://example.com/preview-dark.gif" />
+    <meta property="og:image:type" content="image/gif" />
+    <meta property="og:image:color_scheme" content="dark" />
+    <meta property="og:image:alt" content="An animated map of city traffic" />
+    <meta property="og:video" content="https://example.com/preview.mp4" />
+    <meta property="og:video:type" content="video/mp4" />
+    <meta property="og:video" content="https://example.com/preview-light.mp4" />
+    <meta property="og:video:type" content="video/mp4" />
+    <meta property="og:video:color_scheme" content="light" />
+    <meta property="og:video" content="https://example.com/preview-dark.mp4" />
+    <meta property="og:video:type" content="video/mp4" />
+    <meta property="og:video:color_scheme" content="dark" />
 
 ---
 ## <a id="array" href="#array">Arrays</a>

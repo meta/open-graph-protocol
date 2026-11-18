@@ -69,6 +69,12 @@
     <rdfs:isDefinedBy rdf:resource="http://ogp.me/ns#" />
     <rdfs:range rdf:resource="http://ogp.me/ns/class#string" />
   </rdf:Property>
+  <rdf:Property rdf:about="http://ogp.me/ns#image:color_scheme">
+    <rdfs:label xml:lang="en-US">image color scheme</rdfs:label>
+    <rdfs:comment xml:lang="en-US">The intended interface color scheme for this image. Supported values are light and dark.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://ogp.me/ns#" />
+    <rdfs:range rdf:resource="http://ogp.me/ns/class#string" />
+  </rdf:Property>
   <rdf:Property rdf:about="http://ogp.me/ns#video">
     <rdfs:label xml:lang="en-US">video</rdfs:label>
     <rdfs:comment xml:lang="en-US">A relevant video URL for your object.</rdfs:comment>
@@ -98,6 +104,12 @@
     <rdfs:comment xml:lang="en-US">The height of a video.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://ogp.me/ns#" />
     <rdfs:range rdf:resource="http://ogp.me/ns/class#integer_str" />
+  </rdf:Property>
+  <rdf:Property rdf:about="http://ogp.me/ns#video:color_scheme">
+    <rdfs:label xml:lang="en-US">video color scheme</rdfs:label>
+    <rdfs:comment xml:lang="en-US">The intended interface color scheme for this video. Supported values are light and dark.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://ogp.me/ns#" />
+    <rdfs:range rdf:resource="http://ogp.me/ns/class#string" />
   </rdf:Property>
   <rdf:Property rdf:about="http://ogp.me/ns#audio">
     <rdfs:label xml:lang="en-US">audio</rdfs:label>
